@@ -5,8 +5,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class Activo {
+public class Cartera {
     @Id
     @GeneratedValue
-    private Long idActivo;
+    private Long id_cartera;
 }

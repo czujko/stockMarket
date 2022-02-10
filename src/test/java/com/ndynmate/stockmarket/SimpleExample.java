@@ -9,7 +9,7 @@ public class SimpleExample {
     public static void main(String[] args) {
         CoinGeckoApiClient client = (CoinGeckoApiClient) new CoinGeckoApiClientImpl();
 
-        Map<String, Map<String, Double>> bitcoin = client.getPrice("bitcoin", Currency.EUR);
+        Map<String, Map<String, Double>> bitcoin = client.getPrice("bitcoin", Currency.USD,false,true,true,true);
         Map<String, Map<String, Double>> cardano = client.getPrice("cardano",Currency.EUR);
         Map<String, Map<String, Double>> ethereum = client.getPrice("ethereum",Currency.EUR);
 
@@ -17,7 +17,7 @@ public class SimpleExample {
         System.out.println(cardano);
         System.out.println(ethereum);
 
-        double bitcoinPrice = bitcoin.get("bitcoin").get(Currency.EUR);
+        double bitcoinPrice = bitcoin.get("bitcoin").get(Currency.USD);
         double cardanoPrice = cardano.get("cardano").get(Currency.EUR);
         double ethereumPrice = ethereum.get("ethereum").get(Currency.EUR);
 

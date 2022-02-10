@@ -10,13 +10,10 @@ import java.util.List;
 
 public class CoinsExample {
     public static void main(String[] args) {
-        String OMGContract = "0xd26114cd6EE289AccF82350c8d8487fedB8A0C07";
-        String platform = "ethereum";
-
         CoinGeckoApiClient client = new CoinGeckoApiClientImpl();
 
         List<CoinList> coinList = client.getCoinList();
-        //System.out.println(coinList);
+        System.out.println(coinList);
 
         long totalCoins = coinList.size();
         System.out.println(totalCoins);
@@ -24,8 +21,8 @@ public class CoinsExample {
         /*List<CoinMarkets> coinMarkets = client.getCoinMarkets(Currency.USD);
         System.out.println(coinMarkets);*/
 
-        CoinFullData bitcoinInfo = client.getCoinById("bitcoin");
-        System.out.println(bitcoinInfo);
+        /*CoinFullData bitcoinInfo = client.getCoinById("bitcoin");
+        System.out.println(bitcoinInfo);*/
 
         /*String genesisDate = bitcoinInfo.getGenesisDate();
         System.out.println(genesisDate);*/
@@ -37,8 +34,8 @@ public class CoinsExample {
         long bitcoinGithubStars = bitcoinDevData.getStars();
         System.out.println(bitcoinGithubStars);*/
 
-        CoinTickerById bitcoinTicker = client.getCoinTickerById("bitcoin");
-        System.out.println(bitcoinTicker);
+        /*CoinTickerById bitcoinTicker = client.getCoinTickerById("bitcoin");
+        System.out.println(bitcoinTicker);*/
 
         /*CoinFullData omiseGoInfo = client.getCoinInfoByContractAddress(platform, OMGContract);
         System.out.println(omiseGoInfo);

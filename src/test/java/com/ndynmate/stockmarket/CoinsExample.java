@@ -23,8 +23,8 @@ public class CoinsExample {
         List<CoinMarkets> coinMarkets = client.getCoinMarkets(Currency.USD);
         System.out.println(coinMarkets);
 
-        /*CoinFullData bitcoinInfo = client.getCoinById("bitcoin");
-        System.out.println(bitcoinInfo);*/
+        CoinFullData bitcoinInfo = client.getCoinById("bitcoin");
+        System.out.println(bitcoinInfo);
 
         /*String genesisDate = bitcoinInfo.getGenesisDate();
         System.out.println(genesisDate);*/
@@ -36,8 +36,8 @@ public class CoinsExample {
         long bitcoinGithubStars = bitcoinDevData.getStars();
         System.out.println(bitcoinGithubStars);*/
 
-        CoinTickerById bitcoinTicker = client.getCoinTickerById("bitcoin");
-        System.out.println(bitcoinTicker);
+        /*CoinTickerById bitcoinTicker = client.getCoinTickerById("bitcoin");
+        System.out.println(bitcoinTicker);*/
 
         /*CoinFullData omiseGoInfo = client.getCoinInfoByContractAddress(platform, OMGContract);
         System.out.println(omiseGoInfo);

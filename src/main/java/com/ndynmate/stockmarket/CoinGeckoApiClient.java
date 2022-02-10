@@ -2,6 +2,7 @@ package com.ndynmate.stockmarket;
 
 import com.ndynmate.stockmarket.modelo.CoinFullData;
 import com.ndynmate.stockmarket.modelo.CoinList;
+import com.ndynmate.stockmarket.modelo.CoinMarkets;
 import com.ndynmate.stockmarket.modelo.CoinTickerById;
 
 import java.util.List;
@@ -31,6 +32,8 @@ public interface CoinGeckoApiClient {
 
     CoinFullData getCoinById(String id, boolean localization, boolean tickers, boolean marketData, boolean communityData, boolean developerData, boolean sparkline);
 
+    List<CoinMarkets> getCoinMarkets(String vsCurrency);
 
+    List<CoinMarkets> getCoinMarkets(String vsCurrency,  String ids, String order,  Integer perPage, Integer page,  boolean sparkline, String priceChangePercentage);
     void shutdown();
 }

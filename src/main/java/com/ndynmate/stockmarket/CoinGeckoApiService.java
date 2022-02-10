@@ -1,7 +1,10 @@
 package com.ndynmate.stockmarket;
 
 
+import com.ndynmate.stockmarket.modelo.CoinFullData;
 import com.ndynmate.stockmarket.modelo.CoinList;
+import com.ndynmate.stockmarket.modelo.CoinMarkets;
+import com.ndynmate.stockmarket.modelo.CoinTickerById;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
@@ -31,5 +34,20 @@ public interface CoinGeckoApiService {
 
     @GET("coins/list")
     Call<List<CoinList>> getCoinList();
+
+    @GET("coins/markets")
+    Call<List<CoinMarkets>> getCoinMarkets(@Query("vs_currency") String vsCurrency, @Query("ids") String ids,
+                                           @Query("order") String order, @Query("per_page") Integer perPage,
+                                           @Query("page") Integer page, @Query("sparkline") boolean sparkline,
+                                           @Query("price_change_percentage") String priceChangePercentage);
+
+    @GET("coins/{id}")
+    Call<CoinFullData> getCoinById(@Path("id") String id, @Query("localization") boolean localization, @Query("tickers") boolean tickers,
+                                   @Query("market_data") boolean marketData, @Query("community_data") boolean communityData,
+                                   @Query("developer_data") boolean developerData, @Query("sparkline") boolean sparkline);
+
+    @GET("coins/{id}/tickers")
+    Call<CoinTickerById> getCoinTickerById(@Path("id") String id, @Query("exchange_ids") String exchangeIds,
+                                           @Query("page") Integer page, @Query("order") String order);
 
 }

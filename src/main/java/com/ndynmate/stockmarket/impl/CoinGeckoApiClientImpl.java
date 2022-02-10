@@ -6,6 +6,7 @@ import com.ndynmate.stockmarket.CoinGeckoApiClient;
 import com.ndynmate.stockmarket.CoinGeckoApiService;
 import com.ndynmate.stockmarket.modelo.CoinFullData;
 import com.ndynmate.stockmarket.modelo.CoinList;
+import com.ndynmate.stockmarket.modelo.CoinMarkets;
 import com.ndynmate.stockmarket.modelo.CoinTickerById;
 
 import java.util.List;
@@ -68,27 +69,8 @@ public class CoinGeckoApiClientImpl implements CoinGeckoApiClient {
         return coinGeckoApi.executeSync(coinGeckoApiService.getCoinList());
     }
 
-    @Override
-    public CoinTickerById getCoinTickerById(String id) {
-        return null;
-    }
 
     @Override
-    public CoinTickerById getCoinTickerById(String id, String exchangeIds, Integer page, String order) {
-        return null;
-    }
-
-    @Override
-    public CoinFullData getCoinById(String id) {
-        return null;
-    }
-
-    @Override
-    public CoinFullData getCoinById(String id, boolean localization, boolean tickers, boolean marketData, boolean communityData, boolean developerData, boolean sparkline) {
-        return null;
-    }
-
-    /*@Override
     public List<CoinMarkets> getCoinMarkets(String vsCurrency) {
         return getCoinMarkets(vsCurrency,null,null,null,null,false,null);
     }
@@ -118,7 +100,7 @@ public class CoinGeckoApiClientImpl implements CoinGeckoApiClient {
         return coinGeckoApi.executeSync(coinGeckoApiService.getCoinTickerById(id,exchangeIds,page,order));
     }
 
-    @Override
+    /*@Override
     public CoinHistoryById getCoinHistoryById(String id, String date) {
         return getCoinHistoryById(id,date,true);
     }

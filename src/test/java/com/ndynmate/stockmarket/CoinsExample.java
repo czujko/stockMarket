@@ -1,9 +1,11 @@
 package com.ndynmate.stockmarket;
 
 
+import com.ndynmate.stockmarket.constant.Currency;
 import com.ndynmate.stockmarket.impl.CoinGeckoApiClientImpl;
 import com.ndynmate.stockmarket.modelo.CoinFullData;
 import com.ndynmate.stockmarket.modelo.CoinList;
+import com.ndynmate.stockmarket.modelo.CoinMarkets;
 import com.ndynmate.stockmarket.modelo.CoinTickerById;
 
 import java.util.List;
@@ -12,14 +14,14 @@ public class CoinsExample {
     public static void main(String[] args) {
         CoinGeckoApiClient client = new CoinGeckoApiClientImpl();
 
-        List<CoinList> coinList = client.getCoinList();
+        /*List<CoinList> coinList = client.getCoinList();
         System.out.println(coinList);
 
         long totalCoins = coinList.size();
-        System.out.println(totalCoins);
+        System.out.println(totalCoins);*/
 
-        /*List<CoinMarkets> coinMarkets = client.getCoinMarkets(Currency.USD);
-        System.out.println(coinMarkets);*/
+        List<CoinMarkets> coinMarkets = client.getCoinMarkets(Currency.USD);
+        System.out.println(coinMarkets);
 
         /*CoinFullData bitcoinInfo = client.getCoinById("bitcoin");
         System.out.println(bitcoinInfo);*/
@@ -34,8 +36,8 @@ public class CoinsExample {
         long bitcoinGithubStars = bitcoinDevData.getStars();
         System.out.println(bitcoinGithubStars);*/
 
-        /*CoinTickerById bitcoinTicker = client.getCoinTickerById("bitcoin");
-        System.out.println(bitcoinTicker);*/
+        CoinTickerById bitcoinTicker = client.getCoinTickerById("bitcoin");
+        System.out.println(bitcoinTicker);
 
         /*CoinFullData omiseGoInfo = client.getCoinInfoByContractAddress(platform, OMGContract);
         System.out.println(omiseGoInfo);

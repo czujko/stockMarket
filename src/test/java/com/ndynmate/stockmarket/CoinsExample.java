@@ -21,10 +21,20 @@ public class CoinsExample {
         System.out.println(totalCoins);*/
 
         List<CoinMarkets> coinMarkets = client.getCoinMarkets(Currency.USD);
+        // recorrer lista y mostrar image, id, name, symbol y price
+        for (CoinMarkets coinMarket : coinMarkets) {
+            System.out.println(coinMarket.getImage() + " " + coinMarket.getId() + " " + coinMarket.getName() + " " + coinMarket.getSymbol() + " " + coinMarket.getCurrentPrice());
+
+        }
+        // recorrer lista y mostrar image, id, name, symbol y price de las 10 primeras monedas
+        for (int i = 0; i < 10; i++) {
+            System.out.println(coinMarkets.get(i).getImage() + " " + coinMarkets.get(i).getId() + " " + coinMarkets.get(i).getName() + " " + coinMarkets.get(i).getSymbol() + " " + coinMarkets.get(i).getCurrentPrice());
+
+        }
         System.out.println(coinMarkets);
 
-        CoinFullData bitcoinInfo = client.getCoinById("bitcoin");
-        System.out.println(bitcoinInfo);
+        /*CoinFullData bitcoinInfo = client.getCoinById("bitcoin");
+        System.out.println(bitcoinInfo);*/
 
         /*String genesisDate = bitcoinInfo.getGenesisDate();
         System.out.println(genesisDate);*/

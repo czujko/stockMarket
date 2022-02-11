@@ -7,12 +7,13 @@ import com.ndynmate.stockmarket.compartido.Ticker;
 import com.ndynmate.stockmarket.modelo.CoinData.*;
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class CoinFullData {
+public class CoinFullData implements Serializable {
     @JsonProperty("id")
     private String id;
     @JsonProperty("symbol")
@@ -32,7 +33,7 @@ public class CoinFullData {
     @JsonProperty("public_notice")
     private String publicNotice;
     @JsonProperty("additional_notices")
-    List<String> additionalNotices;
+    private List<String> additionalNotices;
     @JsonProperty("localization")
     private Map<String, String> localization;
     @JsonProperty("description")

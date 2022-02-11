@@ -14,11 +14,11 @@ public class CoinsExample {
     public static void main(String[] args) {
         CoinGeckoApiClient client = new CoinGeckoApiClientImpl();
 
-        /*List<CoinList> coinList = client.getCoinList();
+        List<CoinList> coinList = client.getCoinList();
         System.out.println(coinList);
 
         long totalCoins = coinList.size();
-        System.out.println(totalCoins);*/
+        System.out.println(totalCoins);
 
         List<CoinMarkets> coinMarkets = client.getCoinMarkets(Currency.USD);
         // recorrer lista y mostrar image, id, name, symbol y price

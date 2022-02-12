@@ -8,11 +8,14 @@ import com.ndynmate.stockmarket.modelo.CoinFullData;
 import com.ndynmate.stockmarket.modelo.CoinList;
 import com.ndynmate.stockmarket.modelo.CoinMarkets;
 import com.ndynmate.stockmarket.modelo.CoinTickerById;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Map;
 
-public class CoinGeckoApiClientImpl implements CoinGeckoApiClient {
+public class CoinGeckoApiClientImpl implements CoinGeckoApiClient{
     static final Long DEFAULT_CONNECTION_TIMEOUT = 10L;
     static final Long DEFAULT_READ_TIMEOUT = 10L;
     static final Long DEFAULT_WRITE_TIMEOUT = 10L;
@@ -32,6 +35,9 @@ public class CoinGeckoApiClientImpl implements CoinGeckoApiClient {
                 readTimeoutSeconds,
                 writeTimeoutSeconds
         );
+    }
+
+    public CoinGeckoApiClientImpl(CoinGeckoApiService coinGeckoApiService) {
     }
 
     /*@Override
@@ -65,6 +71,7 @@ public class CoinGeckoApiClientImpl implements CoinGeckoApiClient {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<CoinList> getCoinList() {
         return coinGeckoApi.executeSync(coinGeckoApiService.getCoinList());
     }

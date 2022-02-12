@@ -13,22 +13,31 @@ import java.util.List;
 public class CoinsExample {
     public static void main(String[] args) {
         CoinGeckoApiClient client = new CoinGeckoApiClientImpl();
+/*
 
         List<CoinList> coinList = client.getCoinList();
         System.out.println(coinList);
 
         long totalCoins = coinList.size();
         System.out.println(totalCoins);
+*/
 
         List<CoinMarkets> coinMarkets = client.getCoinMarkets(Currency.USD);
         // recorrer lista y mostrar image, id, name, symbol y price
-        for (CoinMarkets coinMarket : coinMarkets) {
-            System.out.println(coinMarket.getImage() + " " + coinMarket.getId() + " " + coinMarket.getName() + " " + coinMarket.getSymbol() + " " + coinMarket.getCurrentPrice());
+        /*for (CoinMarkets coinMarket : coinMarkets) {
+            System.out.println(coinMarket.getImage() + " "
+                    + coinMarket.getId() + " "
+                    + coinMarket.getName() + " "
+                    + coinMarket.getSymbol() + " "
+                    + coinMarket.getCurrentPrice());
 
-        }
+        }*/
         // recorrer lista y mostrar image, id, name, symbol y price de las 10 primeras monedas
         for (int i = 0; i < 10; i++) {
-            System.out.println(coinMarkets.get(i).getImage() + " " + coinMarkets.get(i).getId() + " " + coinMarkets.get(i).getName() + " " + coinMarkets.get(i).getSymbol() + " " + coinMarkets.get(i).getCurrentPrice());
+            System.out.println(coinMarkets.get(i).getId() + " "
+                    + coinMarkets.get(i).getName() + " "
+                    + coinMarkets.get(i).getSymbol() + " "
+                    + coinMarkets.get(i).getCurrentPrice());
 
         }
         System.out.println(coinMarkets);

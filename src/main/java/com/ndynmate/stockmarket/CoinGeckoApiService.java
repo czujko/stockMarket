@@ -5,7 +5,12 @@ import com.ndynmate.stockmarket.modelo.CoinFullData;
 import com.ndynmate.stockmarket.modelo.CoinList;
 import com.ndynmate.stockmarket.modelo.CoinMarkets;
 import com.ndynmate.stockmarket.modelo.CoinTickerById;
+import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
@@ -13,7 +18,9 @@ import retrofit2.http.Query;
 
 import java.util.List;
 import java.util.Map;
+
 @Service
+@Controller
 public interface CoinGeckoApiService {
 
     @GET("simple/price")

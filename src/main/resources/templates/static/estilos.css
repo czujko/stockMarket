@@ -9,7 +9,7 @@
 }
 
 body {
-    background-color: #f3f3f3
+    background-color: #201d1d
 }
 
 #starred {
@@ -24,7 +24,7 @@ body {
 }
 
 .icons {
-    object-fit: contain;
+    object-fit: scale-down;
     width: 25px;
     height: 25px;
     border-radius: 50%

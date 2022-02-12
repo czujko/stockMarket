@@ -25,62 +25,35 @@
       integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="static/estilos.css" />
   </head>
   <body>
-    <div class="container mt-5">
+    <div class="container-sm fluid">
       <div class="d-lg-flex align-items-lg-center py-4">
-        <div class="h3 text-muted">Top Cryptocurrency Prices</div>
-        <div class="ml-auto">
-          <select name="industry" id="industry" class="mx-lg-3 mr-md-4">
-            <option value="" hidden selected>Choose Industry</option>
-            <option value="dark">Dark Net</option>
-          </select>
-          <select name="plat" id="plat">
-            <option value="" hidden selected>Choose Platform</option>
-            <option value="darkweb">Dark Web</option>
-          </select>
-        </div>
+        <div>
+          <h1 class="display-4 text-muted">Top Cryptocurrency Prices</h1>
+        </div>        
       </div>
       <div id="top">
         <div class="bg-white table-responsive">
           <table class="table">
             <tbody>
-              <div class="row" th:each="coinMarket : ${coinMarkets}">
-              <tr>                
+              <div class="row" th:each="coinMarket, ranking : ${coinMarkets}">
+              <tr class="table-light">                
                   <td>
                     <div class="d-flex mt-2 border-right">
-                      <div class="box p-2 rounded">
-                        <span class="text-primary px-2 font-weight-bold">01</span>
+                      <div class="box rounded">
+                        <span class="text-primary px-2 font-weight-bold" th:text="${ranking.count}"></span>
                       </div>
                     </div>
                   </td>
-                  <td>
-                    <div class="d-flex flex-column">
-                      <div class="d-flex align-items-center">
-                        <div>
-                          <img  alt="" class="icons" th:src="${coinMarket.getImage}"/>
-                        </div>                        
-                    </div>
-                  </td>
-                  <td>
-                    <div class="d-flex flex-column">
-                      <div class="text-muted">Name</div>
-                        <div>
-                          <div>
-                            <b th:text="${coinMarket.getName}">Name
-                        </b>
-                      </div>
-                    </div>
-                  </td>
-                  <td>
-                    <div class="d-flex flex-column">
-                    <div class="text-muted">Symbol</div>
+                  <td class="d-flex">
                     <div>
+                      <img class="img-fluid" style="max-width: 10%; height: auto;" th:src="${coinMarket.getImage}" />
                       <div>
-                        <b th:text="${coinMarket.getSymbol}"></b>
+                        <b th:text="${coinMarket.getName}"></b>
+                      
+                          <b class="text-muted" th:text="${coinMarket.getSymbol.toUpperCase}"></b>
                       </div>
-                    </div>
                   </td>
                   <td>
                     <div class="d-flex flex-column">
@@ -92,6 +65,17 @@
                       </div>                    
                     </div>
                   </td>
+                  <td>
+                    <div class="d-flex flex-column">
+                      <div class="text-muted">24h %</div>
+                        <div>
+                          <div th:if="${coinMarket.getPriceChangePercentage24h < 0}">
+                            <b class="text-danger" th:text="${coinMarket.getPriceChangePercentage24h}"></b>
+                      </div>
+                      <div th:if="${coinMarket.getPriceChangePercentage24h >= 0}">
+                          <b class="text-success" th:text="${coinMarket.getPriceChangePercentage24h}"></b>
+                    </div>
+                  </td>                  
                 </div>
               </tr>
             </tbody>

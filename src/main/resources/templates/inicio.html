@@ -27,17 +27,16 @@
   <div class="container-sm fluid">
     <div class="d-lg-flex align-items-lg-center py-4">
       <div>
-        <h1 class="display-4 text-muted">Top Cryptocurrency Prices</h1>
+        <h1 class="display-4 text-muted">Principales 100 Criptomonedas</h1>
       </div>
     </div>
-    <div id="top">
       <div class="bg-white table-responsive">
         <table class="table">
           <thead>
             <tr class="table-dark">
               <th scope="col"># Ranking</th>
-              <th scope="col">Name</th>
-              <th scope="col">Price</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Precio</th>
               <th scope="col">24hs %</th>
             </tr>
           </thead>
@@ -47,7 +46,7 @@
                 <td>
                   <div class="d-flex border-right">
                     <div class="box rounded">
-                      <span class="text-primary px-2 font-weight-bold" th:text="${ranking.count}"></span>
+                      <span class="text-secondary px-2 font-weight-bold" th:text="${ranking.count}"></span>
                     </div>
                   </div>
                 </td>
@@ -77,13 +76,13 @@
                       <div th:if="${coinMarket.getPriceChangePercentage24h >= 0}">
                         <b class="text-success" th:text="${coinMarket.getPriceChangePercentage24h}"></b>
                       </div>
+                    </div>
+                  </div>
                 </td>
-            </div>
             </tr>
           </tbody>
         </table>
       </div>
-    </div>
   </div>
 </body>
 

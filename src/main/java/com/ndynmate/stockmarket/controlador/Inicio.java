@@ -17,7 +17,7 @@ import java.util.List;
 @Slf4j
 public class Inicio {
 
-    @GetMapping("/")
+    @GetMapping("/usd")
     public String index(Model model) {
         CoinGeckoApiClient coinGeckoApiClient = new CoinGeckoApiClientImpl();
         List<CoinMarkets> coinMarket = coinGeckoApiClient.getCoinMarkets(Currency.USD);
@@ -29,5 +29,20 @@ public class Inicio {
         }
         model.addAttribute("coinMarkets", coinMarket);
         return "inicio";
+    }
+
+    //landing page Currency.EUR
+    @GetMapping("/eur")
+    public String indexEUR(Model model) {
+        CoinGeckoApiClient coinGeckoApiClient = new CoinGeckoApiClientImpl();
+        List<CoinMarkets> coinMarket = coinGeckoApiClient.getCoinMarkets(Currency.EUR);
+        for (int i = 0; i < 10; i++) {
+            log.info("id: {}", coinMarket.get(i).getImage());
+            log.info("name: {}", coinMarket.get(i).getName());
+            log.info("symbol: {}", coinMarket.get(i).getSymbol());
+            log.info("currentPrice: {}", coinMarket.get(i).getCurrentPrice());
+        }
+        model.addAttribute("coinMarkets", coinMarket);
+        return "euro";
     }
 }

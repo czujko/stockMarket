@@ -28,11 +28,11 @@ public class Inicio {
             log.info("currentPrice: {}", coinMarket.get(i).getCurrentPrice());
         }
         model.addAttribute("coinMarkets", coinMarket);
-        return "inicio";
+        return "index-01";
     }
 
     //landing page Currency.EUR
-    @GetMapping("/eur")
+    @GetMapping("/euro")
     public String indexEUR(Model model) {
         CoinGeckoApiClient coinGeckoApiClient = new CoinGeckoApiClientImpl();
         List<CoinMarkets> coinMarket = coinGeckoApiClient.getCoinMarkets(Currency.EUR);
@@ -43,6 +43,6 @@ public class Inicio {
             log.info("currentPrice: {}", coinMarket.get(i).getCurrentPrice());
         }
         model.addAttribute("coinMarkets", coinMarket);
-        return "euro";
+        return "index-02";
     }
 }

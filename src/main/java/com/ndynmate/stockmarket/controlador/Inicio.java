@@ -31,6 +31,7 @@ public class Inicio {
         return "inicio";
     }
 
+    //landing page Currency.EUR
     @GetMapping("/eur")
     public String indexEUR(Model model) {
         CoinGeckoApiClient coinGeckoApiClient = new CoinGeckoApiClientImpl();

@@ -28,7 +28,7 @@ public class Inicio {
             log.info("currentPrice: {}", coinMarket.get(i).getCurrentPrice());
         }
         model.addAttribute("coinMarkets", coinMarket);
-        return "index-01";
+        return "otraprueba-copy";
     }
 
     //landing page Currency.EUR
@@ -43,6 +43,6 @@ public class Inicio {
             log.info("currentPrice: {}", coinMarket.get(i).getCurrentPrice());
         }
         model.addAttribute("coinMarkets", coinMarket);
-        return "index-02";
+        return "otraprueba-02";
     }
 }

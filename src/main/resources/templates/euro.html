@@ -14,23 +14,38 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
     integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
     crossorigin="anonymous"></script>
-  <style>
-    body {
-      min-height: 100vh;
-      background-color: #ffe53b;
-      background-image: linear-gradient(147deg, #ffe53b 0%, #ff2525 100%);
-    }
-  </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  
 </head>
 
 <body>
+  <div class="container-fluid g-0">
+    <div class="col-md-12">
+        <nav class="navbar sticky-top navbar-expand-md navbar-light" style="background-color: #e3f2fd;">
+            <a class="navbar-brand" style="padding-left: 30px;" href="https://github.com/czujko">CryptoNdynMATE</a>
+            <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
+                aria-label="Toggle navigation"></button>
+            <div class="collapse navbar-collapse" id="collapsibleNavId">
+              <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/euro">Euro <span class="visually-hidden">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/usd">USD</a>
+                </li>                       
+            </ul>                  
+            </div>
+        </nav>
+    </div>
+</div>
   <div class="container-sm fluid">
     <div class="d-lg-flex align-items-lg-center py-4">
       <div>
-        <h1 class="display-4 text-muted">Principales 100 Criptomonedas</h1>
+        <h1 class="display-6 text-muted">Principales 100 Criptomonedas</h1>
       </div>
     </div>
-    <div id="top">
       <div class="bg-white table-responsive">
         <table class="table">
           <thead>
@@ -43,17 +58,17 @@
           </thead>
           <tbody>
             <div class="row" th:each="coinMarket, ranking : ${coinMarkets}">
-              <tr class="table-warning">
+              <tr class="table-light">
                 <td>
                   <div class="d-flex border-right">
                     <div class="box rounded">
-                      <span class="text-primary px-2 font-weight-bold" th:text="${ranking.count}"></span>
+                      <span class="text-secondary px-2 font-weight-bold" th:text="${ranking.count}"></span>
                     </div>
                   </div>
                 </td>
                 <td class="d-flex">
                   <div>
-                    <img class="img d-inline-block align-text-top" style="max-width: 15%; height: auto;" th:src="${coinMarket.getImage}" />
+                    <img class="img-fluid" style="max-width: 15%; height: auto;" th:src="${coinMarket.getImage}" />
                     <div>
                       <b th:text="${coinMarket.getName}"></b>
                       <b class="text-muted" th:text="${coinMarket.getSymbol.toUpperCase}"></b>
@@ -63,7 +78,7 @@
                   <div class="d-flex flex-column">
                     <div>
                       <div>
-                        <b th:text="${coinMarket.getCurrentPrice}"></b>
+                        <b th:text="${coinMarket.getCurrentPrice}+'€'"></b>
                       </div>
                     </div>
                   </div>
@@ -72,18 +87,18 @@
                   <div class="d-flex flex-column">
                     <div>
                       <div th:if="${coinMarket.getPriceChangePercentage24h < 0}">
-                        <b class="text-danger" th:text="${coinMarket.getPriceChangePercentage24h}"></b>
+                        <b class="text-danger" th:text="${coinMarket.getPriceChangePercentage24h}+'%'"></b>
                       </div>
                       <div th:if="${coinMarket.getPriceChangePercentage24h >= 0}">
-                        <b class="text-success" th:text="${coinMarket.getPriceChangePercentage24h}"></b>
+                        <b class="text-success" th:text="${coinMarket.getPriceChangePercentage24h}+'%'"></b>
                       </div>
+                    </div>
+                  </div>
                 </td>
-            </div>
             </tr>
           </tbody>
         </table>
       </div>
-    </div>
   </div>
 </body>
 

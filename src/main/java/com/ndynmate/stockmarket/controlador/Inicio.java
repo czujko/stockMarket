@@ -28,10 +28,9 @@ public class Inicio {
             log.info("currentPrice: {}", coinMarket.get(i).getCurrentPrice());
         }
         model.addAttribute("coinMarkets", coinMarket);
-        return "otraprueba-copy";
+        return "usd";
     }
 
-    //landing page Currency.EUR
     @GetMapping("/euro")
     public String indexEUR(Model model) {
         CoinGeckoApiClient coinGeckoApiClient = new CoinGeckoApiClientImpl();
@@ -43,6 +42,6 @@ public class Inicio {
             log.info("currentPrice: {}", coinMarket.get(i).getCurrentPrice());
         }
         model.addAttribute("coinMarkets", coinMarket);
-        return "otraprueba-02";
+        return "euro";
     }
 }
